@@ -8,15 +8,14 @@ app.get('/', function(req, res) {
     var ip = req.headers['x-forwarded-for'],
         language = req.headers['accept-language'],
         software = req.useragent;
-    
-    res.writeHead(200, { 'Content-Type': 'application/json' });
+        
     var ret = {
         'ipaddress': ip,
         'language': language.split(',')[0],
         'software': software.os
     };
     
-    res.send(JSON.stringify(ret));
+    res.json(ret);
 });
 app.listen(process.env.PORT || 80, function() {
     console.log('server is running.');
