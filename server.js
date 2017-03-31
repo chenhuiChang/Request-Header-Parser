@@ -18,5 +18,5 @@ app.get('/', function(req, res) {
     res.json(ret);
 });
 app.listen(process.env.PORT || 80, function() {
-    console.log('server is running.');
+    console.log('server is running', process.env.PORT);
 });
